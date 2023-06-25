@@ -2,6 +2,8 @@
 
 ## Website showing how assets management system works using interactable simulation.
 
+## [Demo](https://pawelgargula.github.io/asset-management-simulator/)
+
 ## Simulation steps
 
 1. Assets Import using Excel files
