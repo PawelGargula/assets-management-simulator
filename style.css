@@ -9,17 +9,12 @@
 * {
     --primary-color: #222831;
     --secondary-color: #393E46;
-    --tertiary-color: #00ADB5;
+    --tertiary-color: #009ca3;
     --font-color: white;
     --out-side-padding: .5rem 1rem;
     font-family: 'Genos', sans-serif;
     text-wrap: balance;
     letter-spacing: 1px;
-}
-
-h1,
-h2 {
-    font-weight: normal;
 }
 
 strong {
@@ -44,25 +39,33 @@ h1 {
 }
 
 main {
+    --button-font-size: 2rem;
     margin: 0 auto;
+    margin-bottom: calc(2 * var(--button-font-size));
     padding: var(--out-side-padding);
 }
 
 ol {
+    font-size: 1.1rem;
     margin: 1rem auto;
     text-align: left;
-    width: max-content;
+    width: fit-content;
 }
 
+/* Buttons */
 button {
     --move: 3px;
     background-color: var(--tertiary-color);
     border: none;
-    box-shadow: var(--move) var(--move) 1px black;
     border-radius: 4px;
+    bottom: var(--button-font-size);
+    box-shadow: var(--move) var(--move) 1px black;
     color: white;
     cursor: pointer;
-    font-size: 28px;
+    font-size: var(--button-font-size);
+    left: 50%;
+    position: fixed;
+    transform: translateX(-50%);
     transition: box-shadow .1s, transform .1s;
     width: 240px;
 }
@@ -73,5 +76,5 @@ button:hover {
 
 button:active {
     box-shadow: 0px 0px 0px var(--secondary-color);
-    transform: translate(var(--move), var(--move));
+    transform: translate(calc(-50% + var(--move)), var(--move));
 }
