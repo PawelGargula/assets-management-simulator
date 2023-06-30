@@ -1,0 +1,53 @@
+/* Utilities */
+.center-child {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+/* General Styles */
+* {
+  --primary-color: #222831;
+  --secondary-color: #393E46;
+  --tertiary-color: #009ca3;
+  --font-color: white;
+  --out-side-padding: .5rem 1rem;
+  font-family: 'Genos', sans-serif;
+  text-wrap: balance;
+  letter-spacing: 1px;
+}
+
+strong {
+  letter-spacing: 2px;
+}
+
+body {
+  background-color: var(--secondary-color);
+  color: var(--font-color);
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+header {
+  background-color: var(--primary-color);
+  padding: var(--out-side-padding);
+}
+
+h1 {
+  margin: 0;
+}
+
+main {
+  --button-font-size: 2rem;
+  margin: 0 auto;
+  margin-bottom: calc(2 * var(--button-font-size));
+  padding: var(--out-side-padding);
+}
+
+ol {
+  font-size: 1.1rem;
+  margin: 1rem auto;
+  text-align: left;
+  width: fit-content;
+}

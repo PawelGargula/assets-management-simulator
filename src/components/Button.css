@@ -1,0 +1,25 @@
+button {
+    --move: 3px;
+    background-color: var(--tertiary-color);
+    border: none;
+    border-radius: 4px;
+    bottom: var(--button-font-size);
+    box-shadow: var(--move) var(--move) 1px black;
+    color: white;
+    cursor: pointer;
+    font-size: var(--button-font-size);
+    left: 50%;
+    position: fixed;
+    transform: translateX(-50%);
+    transition: box-shadow .1s, transform .1s;
+    width: 240px;
+}
+
+button:hover {
+    background-color: #00ADB5EE;
+}
+
+button:active {
+    box-shadow: 0px 0px 0px var(--secondary-color);
+    transform: translate(calc(-50% + var(--move)), var(--move));
+}
