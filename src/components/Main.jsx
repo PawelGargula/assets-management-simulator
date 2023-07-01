@@ -6,6 +6,10 @@ import { useState } from 'react'
 export default function Main() {
     const [ simulationStarted, setSimulationStarted ] = useState(false);
 
+    function exitPopupFunction() {
+        setSimulationStarted(false);
+    }
+
     return (
         <main>
             {
@@ -15,7 +19,7 @@ export default function Main() {
                     <Button onClick={() => setSimulationStarted(true)}>Start simulation</Button>
                 </>
                 :
-                <SimulationPopup />
+                <SimulationPopup exitPopupFunction={exitPopupFunction}/>
             }
         </main>
     )
