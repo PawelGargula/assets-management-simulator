@@ -2,7 +2,7 @@ import './Button.css'
 
 export default function Button({ children, onClick }) {
     return (
-        <button type="button" onClick={onClick}>
+        <button className='set-simulation-progress' type="button" onClick={onClick}>
             {children}
         </button>
     )

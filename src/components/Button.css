@@ -1,4 +1,4 @@
-button {
+button.set-simulation-progress {
     --move: 3px;
     background-color: var(--tertiary-color);
     border: none;
@@ -15,11 +15,11 @@ button {
     width: 240px;
 }
 
-button:hover {
+button.set-simulation-progress:hover {
     background-color: #00ADB5EE;
 }
 
-button:active {
+button.set-simulation-progress:active {
     box-shadow: 0px 0px 0px var(--secondary-color);
     transform: translate(calc(-50% + var(--move)), var(--move));
 }
