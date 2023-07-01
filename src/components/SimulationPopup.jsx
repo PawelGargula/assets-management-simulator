@@ -1,14 +1,12 @@
-import { useState } from 'react'
 import './SimulationPopup.css'
+import PopupContent from './PopupContent';
+import ExitSimulationButton from './ExitSimulationButton';
 
-export default function SimulationPopup() {
-    const [ step, setStep ] = useState(1);
-
+export default function SimulationPopup({ exitPopupFunction }) {
     return (
         <>
-            <progress max="7" value={step} aria-label='simulation progress'></progress>
-            <h2>Step {step}</h2>
-            
+            <ExitSimulationButton onClick={exitPopupFunction} />
+            <PopupContent />
         </>
     )
 }
