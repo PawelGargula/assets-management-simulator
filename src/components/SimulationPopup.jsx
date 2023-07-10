@@ -6,7 +6,7 @@ export default function SimulationPopup({ exitSimulation }) {
     return (
         <div className='popup'>
             <ExitSimulationButton onClick={exitSimulation} />
-            <PopupContent />
+            <PopupContent exitSimulation={exitSimulation}/>
         </div>
     )
 }
