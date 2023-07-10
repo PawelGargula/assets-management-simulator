@@ -2,11 +2,11 @@ import './SimulationPopup.css'
 import PopupContent from './PopupContent';
 import ExitSimulationButton from './ExitSimulationButton';
 
-export default function SimulationPopup({ exitPopupFunction }) {
+export default function SimulationPopup({ exitSimulation }) {
     return (
-        <>
-            <ExitSimulationButton onClick={exitPopupFunction} />
+        <div className='popup'>
+            <ExitSimulationButton onClick={exitSimulation} />
             <PopupContent />
-        </>
+        </div>
     )
 }

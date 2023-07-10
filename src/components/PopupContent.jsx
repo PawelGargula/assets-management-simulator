@@ -6,7 +6,7 @@ export default function PopupContent() {
 
     return (
         <>
-            <h2>{simulationState}</h2>
+            <h2>Title of {simulationState}. step</h2>
             <progress max="7" value={simulationState} aria-label='simulation progress'></progress>
             <Button onClick={() => setSimulationState(simulationState + 1)}>Button {simulationState}</Button>   
         </>

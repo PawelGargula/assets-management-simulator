@@ -1,0 +1,10 @@
+button.exit-simulation {
+    border: none;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    font-size: 1.6rem;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+}

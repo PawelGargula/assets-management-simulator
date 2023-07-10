@@ -1,5 +1,7 @@
+import './ExitSimulationButton.css';
+
 export default function ExitSimulationButton({ onClick }) {
     return (
-        <button aria-label="Exit simulation" onClick={onClick}>X</button>
+        <button className='exit-simulation' aria-label="exit simulation" onClick={onClick}>✖</button>
     )
 }
