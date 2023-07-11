@@ -4,12 +4,13 @@
     min-height: 100dvh;
     left: 0;
     padding: 1rem;
-    padding-top: 2rem;
+    padding-top: 4rem;
     position: absolute;
     top: 0;
     width: 100dvw;
 }
 
+/* Progress */
 progress[value] {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -35,4 +36,40 @@ progress[value]::-webkit-progress-value {
 progress[value]::-moz-progress-bar {
     background-color: var(--tertiary-color);
     border-radius: 2px;
+}
+
+/* Body */
+div.body {
+    max-width: 100%;
+    margin-block: 1rem calc(2 * var(--button-font-size));
+    overflow: auto;
+}
+
+/* Table */
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+}
+
+th,
+td {
+    padding: .1rem .4rem;
+    white-space: nowrap
+}
+
+thead tr:first-child {
+    text-align: left;
+    background-color: #037543;
+}
+
+thead tr:nth-child(2),
+tbody {
+    background-color: white;
+    color: black;
 }

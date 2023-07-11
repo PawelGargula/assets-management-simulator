@@ -16,7 +16,7 @@ export default function Main() {
                 !simulationStarted ? 
                 <>
                     <Steps />
-                    <Button onClick={() => setSimulationStarted(true)}>Start simulation</Button>
+                    <Button onClick={() => setSimulationStarted(true)}>Start</Button>
                 </>
                 :
                 <SimulationPopup exitSimulation={exitSimulation}/>

@@ -6,12 +6,15 @@
 }
 
 /* General Styles */
-* {
+:root {
   --primary-color: #222831;
   --secondary-color: #393E46;
   --tertiary-color: #009ca3;
   --font-color: white;
   --out-side-padding: .5rem 1rem;
+}
+
+* {
   font-family: 'Genos', sans-serif;
   text-wrap: balance;
   letter-spacing: 1px;
