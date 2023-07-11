@@ -16,7 +16,8 @@ export default function SimulationPopup({ exitSimulation }) {
             <progress max={stepsLength - 1} value={simulationStep} aria-label='simulation progress'></progress>
             <h2>{contents[simulationStep].title}</h2>
             <div className='body'>{contents[simulationStep].body}</div>
-            {!animating && <Button onClick={
+            {!animating 
+            ? <Button onClick={
                 () => {
                     if (simulationStep === stepsLength - 1) {
                         exitSimulation()
@@ -29,7 +30,8 @@ export default function SimulationPopup({ exitSimulation }) {
                         }, 3000)
                     }
                 }
-            }>{contents[simulationStep].buttonName}</Button>}   
+            }>{contents[simulationStep].buttonName}</Button>
+            : <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>}   
         </div>
     )
 }
