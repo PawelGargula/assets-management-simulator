@@ -3,6 +3,7 @@ import './style/Progress.css'
 import './style/Table.css'
 import './style/Spinner.css'
 import './style/AnimatedArrow.css'
+import './style/WebApp.css'
 import ExitSimulationButton from './ExitSimulationButton';
 import StepBackButton from './StepBackButton';
 import Button from './Button'

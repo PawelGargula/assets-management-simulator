@@ -1,0 +1,46 @@
+.web-app {
+    border: 4px solid white;
+    border-radius: 8px;
+    padding: 1rem;
+    padding-top: 0;
+    padding-bottom: 2rem;
+}
+
+.web-app h3 {
+    box-sizing: border-box;
+    padding: .6rem;
+    margin-top: 0;
+    border-bottom: 2px solid white;
+}
+
+label,
+input {
+    text-align: left;
+    display: block;
+    width: 100%;
+}
+
+label {
+    margin-top: .8rem;
+}
+
+input {
+    background-color: white;
+    border: white;
+    border-radius: 2px;
+}
+
+.stand {
+    height: 40px;
+    width: 60px;
+    border-left: 4px solid white;
+    border-right: 4px solid white;
+    margin: 0 auto;
+}
+
+.stand+div {
+    border: 2px solid white;
+    border-radius: 2px;
+    width: 160px;
+    margin: 0 auto;
+}

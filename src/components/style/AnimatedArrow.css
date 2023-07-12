@@ -2,6 +2,7 @@
 .animated-arrow {
     font-size: 3rem;
     opacity: .1;
+    display: none;
 }
 
 .first.animated-arrow {

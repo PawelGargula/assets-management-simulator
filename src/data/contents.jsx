@@ -71,7 +71,8 @@ createExcelFile.body = <table>
     </tbody>
 </table>
 createExcelFile.animate = () => {
-    const assetsValuesArray = assets.reduce(
+    const firstSevenAssets = assets.slice(0, 7);
+    const assetsValuesArray = firstSevenAssets.reduce(
         (accumulator, currentAsset) => accumulator.concat(Object.values(currentAsset)), []
     )
 
@@ -82,7 +83,7 @@ createExcelFile.animate = () => {
         [...value].forEach((letter, i) => {
             setTimeout(() => {
                 td[index].textContent += letter;
-            }, i * 100 + index)
+            }, i * 100)
         })
     })
 }
@@ -91,26 +92,54 @@ const importExcelFile = new Content("Import excel file by Web App", "Import")
 importExcelFile.body = (
     <div className="center-child">
         <img src={documentIcon} alt="Document" />
+        <span className="animated-arrow first">›</span>
+        <span className="animated-arrow second">›</span>
+        <span className="animated-arrow third">›</span>
         <img src={desktopIcon} alt="Desktop" />
     </div>
 )
 importExcelFile.animate = () => {
-    const firstImage = document.querySelector("body img")
-    console.log(firstImage)
-    firstImage.insertAdjacentHTML(
-        "afterend",
-        `
-        <span class="animated-arrow first">›</span>
-        <span class="animated-arrow second">›</span>
-        <span class="animated-arrow third">›</span>
-        `
-    )
+    const arrows = document.querySelectorAll('body .animated-arrow');
+    arrows.forEach(arrow => arrow.style.display = "inline")
+}
+
+const addAssetManually = new Content("Add asset manually by Web App", "Add");
+addAssetManually.body = (
+    <>
+        <div className="web-app">
+            <h3>Web App</h3>
+            <label htmlFor="id">Id</label>
+            <input id="id" type="text" disabled />
+            <label htmlFor="name">Name</label>
+            <input id="name" type="text" disabled />
+            <label htmlFor="Localization">Localization</label>
+            <input id="Localization" type="text" disabled />
+            <label htmlFor="responsible-person">Responsible person</label>
+            <input id="responsible-person" type="text" disabled />
+        </div>
+        <div className="stand"></div>
+        <div></div>
+    </>
+)
+addAssetManually.animate = () => {
+    const lastAsset = assets[assets.length - 1];
+    const assetsValuesArray = Object.values(lastAsset)
+
+    const inputs = document.querySelectorAll("input")
+
+    assetsValuesArray.forEach((value, index) => {
+        [...value].forEach((letter, i) => {
+            setTimeout(() => {
+                inputs[index].value += letter;
+            }, i * 100)
+        })
+    })
 }
 
 export const contents = [
     createExcelFile,
     importExcelFile,
-    new Content("Add asset manually", "Add"),
+    addAssetManually,
     new Content("Label assets", "Label"),
     new Content("Create inventory", "Create"),
     new Content("Inventory by Android App", "Inventory"),
