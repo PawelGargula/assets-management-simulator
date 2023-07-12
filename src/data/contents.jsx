@@ -12,7 +12,7 @@ class Content {
     animate = () => {console.log("hi")};
 }
 
-const createExcelFile = new Content("Create excel file", "Create")
+const createExcelFile = new Content("Create excel file with assets' data", "Create")
 createExcelFile.body = <table>
     <thead>
         <tr>
