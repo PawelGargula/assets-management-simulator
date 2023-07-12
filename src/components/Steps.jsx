@@ -3,7 +3,8 @@ export default function Steps() {
         <>
             <h2>Simulation steps</h2>
             <ol>
-                <li>Assets Import using Excel files</li>
+                <li>Create excel file with assets' data</li>
+                <li>Import excel file by Web App</li>
                 <li>Manual Assets Adding</li>
                 <li>Assets Labeling</li>
                 <li>Inventory Creation - Name, Area, Team</li>

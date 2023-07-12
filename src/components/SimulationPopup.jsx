@@ -1,4 +1,8 @@
-import './SimulationPopup.css'
+import './style/SimulationPopup.css'
+import './style/Progress.css'
+import './style/Table.css'
+import './style/Spinner.css'
+import './style/AnimatedArrow.css'
 import ExitSimulationButton from './ExitSimulationButton';
 import StepBackButton from './StepBackButton';
 import Button from './Button'

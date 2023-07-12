@@ -1,0 +1,31 @@
+/* Animated arrow */
+.animated-arrow {
+    font-size: 3rem;
+    opacity: .1;
+}
+
+.first.animated-arrow {
+    animation: 1s 0s arrow-animation infinite;
+}
+
+.second.animated-arrow {
+    animation: 1s .3s arrow-animation infinite;
+}
+
+.third.animated-arrow {
+    animation: 1s .6s arrow-animation infinite;
+}
+
+@keyframes arrow-animation {
+    from {
+        opacity: .1;
+    }
+
+    50% {
+        opacity: 1
+    }
+
+    to {
+        opacity: .1;
+    }
+}

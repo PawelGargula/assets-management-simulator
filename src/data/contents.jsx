@@ -6,8 +6,8 @@ class Content {
         this.buttonName = buttonName;
     }
 
-    body;
-    animate = () => {};
+    body = "";
+    animate = () => {console.log("hi")};
 }
 
 const createExcelFile = new Content("Create excel file", "Create")
@@ -85,9 +85,29 @@ createExcelFile.animate = () => {
     })
 }
 
+const importExcelFile = new Content("Import excel file by Web App", "Import")
+importExcelFile.body = (
+    <div className="center-child">
+        <img src="src/assets/document-svgrepo-com.svg" alt="Document" />
+        <img src="src/assets/desktop-svgrepo-com.svg" alt="Desktop" />
+    </div>
+)
+importExcelFile.animate = () => {
+    const firstImage = document.querySelector("body img")
+    console.log(firstImage)
+    firstImage.insertAdjacentHTML(
+        "afterend",
+        `
+        <span class="animated-arrow first">›</span>
+        <span class="animated-arrow second">›</span>
+        <span class="animated-arrow third">›</span>
+        `
+    )
+}
+
 export const contents = [
     createExcelFile,
-    new Content("Import excel file", "Import"),
+    importExcelFile,
     new Content("Add asset manually", "Add"),
     new Content("Label assets", "Label"),
     new Content("Create inventory", "Create"),

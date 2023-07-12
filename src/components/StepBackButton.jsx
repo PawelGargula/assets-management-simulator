@@ -1,4 +1,4 @@
-import './StepBackButton.css';
+import './style/StepBackButton.css';
 
 export default function StepBackButton({ onClick }) {
     return (

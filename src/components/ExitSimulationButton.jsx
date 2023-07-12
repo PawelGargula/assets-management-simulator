@@ -1,4 +1,4 @@
-import './ExitSimulationButton.css';
+import './style/ExitSimulationButton.css';
 
 export default function ExitSimulationButton({ onClick }) {
     return (
