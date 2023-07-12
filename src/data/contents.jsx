@@ -1,4 +1,6 @@
 import { assets } from "../data/assets";
+import documentIcon from '../assets/document-svgrepo-com.svg'
+import desktopIcon from '../assets/desktop-svgrepo-com.svg'
 
 class Content {
     constructor(title, buttonName) {
@@ -88,8 +90,8 @@ createExcelFile.animate = () => {
 const importExcelFile = new Content("Import excel file by Web App", "Import")
 importExcelFile.body = (
     <div className="center-child">
-        <img src="src/assets/document-svgrepo-com.svg" alt="Document" />
-        <img src="src/assets/desktop-svgrepo-com.svg" alt="Desktop" />
+        <img src={documentIcon} alt="Document" />
+        <img src={desktopIcon} alt="Desktop" />
     </div>
 )
 importExcelFile.animate = () => {
