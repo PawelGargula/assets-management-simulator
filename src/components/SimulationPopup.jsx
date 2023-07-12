@@ -1,5 +1,6 @@
 import './SimulationPopup.css'
 import ExitSimulationButton from './ExitSimulationButton';
+import StepBackButton from './StepBackButton';
 import Button from './Button'
 import { useState } from 'react'
 import { contents } from '../data/contents'
@@ -12,7 +13,8 @@ export default function SimulationPopup({ exitSimulation }) {
 
     return (
         <div className='popup'>
-            <ExitSimulationButton onClick={exitSimulation} />
+            {!animating && <ExitSimulationButton onClick={exitSimulation} />}
+            {simulationStep !== 0 && !animating && <StepBackButton onClick={() => setSimulationStep(simulationStep -1)}/>}
             <progress max={stepsLength - 1} value={simulationStep} aria-label='simulation progress'></progress>
             <h2>{contents[simulationStep].title}</h2>
             <div className='body'>{contents[simulationStep].body}</div>

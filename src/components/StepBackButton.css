@@ -1,0 +1,11 @@
+button.step-back {
+    border: none;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    font-size: 3rem;
+    font-weight: 900;
+    position: absolute;
+    left: 1rem;
+    top: .4rem;
+}
