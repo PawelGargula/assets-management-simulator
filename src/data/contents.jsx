@@ -2,6 +2,7 @@ import { assets } from "../data/assets";
 import documentIcon from '../assets/document-svgrepo-com.svg'
 import desktopIcon from '../assets/desktop-svgrepo-com.svg'
 import printerIcon from '../assets/printer-svgrepo-com.svg'
+import monitorIcon from '../assets/monitor-svgrepo-com.svg'
 
 class Content {
     constructor(title, buttonName) {
@@ -259,10 +260,10 @@ createInventory.body = (
             <h3>Web App</h3>
             <label htmlFor="name">Name</label>
             <input id="name" type="text" disabled />
-            <label htmlFor="area">Area</label>
-            <input id="area" type="text" disabled />
-            <label htmlFor="team">Team</label>
-            <input id="team" type="text" disabled />
+            <label htmlFor="areas">Areas</label>
+            <input id="areas" type="text" disabled />
+            <label htmlFor="teams">Teams</label>
+            <input id="teams" type="text" disabled />
         </div>
         <div className="stand"></div>
         <div></div>
@@ -328,6 +329,7 @@ inventoryByAndroidApp.animate = () => {
     })
 }
 
+const firstAsset = assets[0]
 const scanByCamera = new Content("Scan by camera", "Scan")
 scanByCamera.body = (
     <>
@@ -336,9 +338,9 @@ scanByCamera.body = (
             <h3>Android App</h3>
             <div className="camera">
                 <h4>Camera</h4>
-                <div className="label">
-                    <span></span>
-                    <div className="barcode">
+                <div className="label center-vertically">
+                    <span>{firstAsset.name}</span>
+                    <div className="barcode display-flex">
                         <span></span>
                         <span></span>
                         <span></span>
@@ -356,7 +358,7 @@ scanByCamera.body = (
                         <span></span>
                         <span></span>
                     </div>
-                    <span></span>
+                    <span>{firstAsset.id}</span>
                 </div>
             </div>
             <label htmlFor="id">Id</label>
@@ -372,15 +374,6 @@ scanByCamera.body = (
     </>
 )
 scanByCamera.animate = () => {
-    const labelFirstLineDOM = document.querySelector(".label > span:first-child")
-    const labelLastLineDOM = document.querySelector(".label > span:last-child")
-    const barcodeDOM = document.querySelector(".barcode")
-    const firstAsset = assets[0]
-
-    labelFirstLineDOM.textContent = firstAsset.name
-    barcodeDOM.style.display = "flex"
-    labelLastLineDOM.textContent = firstAsset.id
-    
     const labelDOM = document.querySelector(".camera .label");
     const duration = 2000
     labelDOM.animate(
@@ -407,6 +400,124 @@ scanByCamera.animate = () => {
     }, duration / 2)
 }
 
+const secondAsset = assets[1];
+const scanByScaner = new Content("Scan by 1D/2D scanner", "Scan")
+scanByScaner.body = (
+    <>
+        <img src={monitorIcon} alt="Monitor" />
+        <div className="label center-vertically">
+            <span>{secondAsset.name}</span>
+            <div className="barcode display-flex">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <span>{secondAsset.id}</span>
+        </div>
+        <div className="cone center-vertically" aria-label="scanning laser"></div>
+        <div className="android-app">
+            <h3>Android App</h3>
+            <label htmlFor="id">Id</label>
+            <input id="id" type="text" disabled value="" />
+            <label htmlFor="name">Name</label>
+            <input id="name" type="text" disabled value="" />
+        </div>
+        <div>
+            <div>◁</div>
+            <div>◯</div>
+            <div>◻</div>
+        </div>
+    </>
+)
+scanByScaner.animate = () => {
+    const cubeDOM = document.querySelector(".cone")
+
+    const duration = 1000
+    cubeDOM.animate(
+        [
+            { opacity: 0 },
+            { opacity: .6 },
+            { opacity: 0 }
+        ],
+        {
+            duration: duration
+        }
+    )
+
+    setTimeout(() => {
+        const inputs = document.querySelectorAll("input")
+        const secondAssetValues = Object.values(secondAsset);
+        inputs.forEach((input, index) => {
+            [...secondAssetValues[index]].forEach((letter, i) => {
+                setTimeout(() => {
+                    input.value += letter
+                }, i * 100)
+            })
+        })
+    }, duration / 2)
+}
+
+const readByRFID = new Content("Read by RFID reader", "Read")
+readByRFID.body = (
+    <>
+        <img src={printerIcon} alt="Printer" />
+        <div className="cone center-vertically radio-wave" aria-label="radio wave"></div>
+        <div className="android-app">
+            <h3>Android App</h3>
+            <label htmlFor="id">Id</label>
+            <input id="id" type="text" disabled value="" />
+            <label htmlFor="name">Name</label>
+            <input id="name" type="text" disabled value="" />
+        </div>
+        <div>
+            <div>◁</div>
+            <div>◯</div>
+            <div>◻</div>
+        </div>
+    </>
+)
+readByRFID.animate = () => {
+    const thirdAsset = assets[2]
+    const cubeDOM = document.querySelector(".cone.radio-wave")
+
+    const duration = 1000
+    cubeDOM.animate(
+        [
+            { opacity: 0 },
+            { opacity: .1 },
+            { opacity: 0 }
+        ],
+        {
+            duration: duration
+        }
+    )
+
+    setTimeout(() => {
+        const inputs = document.querySelectorAll("input")
+        const thirdAssetValues = Object.values(thirdAsset);
+        inputs.forEach((input, index) => {
+            [...thirdAssetValues[index]].forEach((letter, i) => {
+                setTimeout(() => {
+                    input.value += letter
+                }, i * 100)
+            })
+        })
+    }, duration / 2)
+}
+
 export const contents = [
     createExcelFile,
     importExcelFile,
@@ -416,8 +527,8 @@ export const contents = [
     createInventory,
     inventoryByAndroidApp,
     scanByCamera,
-    new Content("Scan by 1D/2D scanner", "Scan"),
-    new Content("Read by RFID reader", "Read"),
+    scanByScaner,
+    readByRFID,
     new Content("Inventory by Web App", "Inventory"),
     new Content("Generate inventory reports", "Generate"),
     new Content("Simulation completed", "Finish")

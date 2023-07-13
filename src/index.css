@@ -6,6 +6,10 @@
   gap: 2rem;
 }
 
+.center-vertically {
+  margin-inline: auto;
+}
+
 /* General Styles */
 :root {
   --primary-color: #222831;

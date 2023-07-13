@@ -52,6 +52,23 @@ img+.android-app {
 
 .camera .label {
     opacity: 0;
-    margin-inline: auto;
     margin-top: .6rem;
+}
+
+.barcode.display-flex {
+    display: flex;
+}
+
+.cone {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 70px solid red;
+    border-radius: 50%;
+}
+
+.cone.radio-wave {
+    border-top-color: white;
 }
