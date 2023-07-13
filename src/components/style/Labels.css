@@ -1,0 +1,32 @@
+.labels {
+    display: grid;
+    width: 6rem;
+    height: 4rem;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.labels>div {
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 2px;
+}
+
+.asset {
+    position: relative;
+    width: 6rem;
+    height: 6rem;
+    border: 2px solid white;
+    border-radius: 4px;
+}
+
+.label-on-asset {
+    position: absolute;
+    left: .2rem;
+    top: .2rem;
+    background: white;
+    width: 2rem;
+    height: 1rem;
+    display: none;
+}

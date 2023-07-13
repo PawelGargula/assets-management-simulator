@@ -3,6 +3,7 @@
   align-items: center;
   display: flex;
   justify-content: center;
+  gap: 2rem;
 }
 
 /* General Styles */
@@ -53,4 +54,8 @@ ol {
   margin: 1rem auto;
   text-align: left;
   width: fit-content;
+}
+
+input {
+  font-size: 1rem;
 }

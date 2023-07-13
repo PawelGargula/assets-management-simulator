@@ -1,6 +1,7 @@
 import { assets } from "../data/assets";
 import documentIcon from '../assets/document-svgrepo-com.svg'
 import desktopIcon from '../assets/desktop-svgrepo-com.svg'
+import printerIcon from '../assets/printer-svgrepo-com.svg'
 
 class Content {
     constructor(title, buttonName) {
@@ -9,7 +10,7 @@ class Content {
     }
 
     body = "";
-    animate = () => {console.log("hi")};
+    animate = () => {};
 }
 
 const createExcelFile = new Content("Create excel file with assets' data", "Create")
@@ -82,7 +83,7 @@ createExcelFile.animate = () => {
         td[index].textContent = "";
         [...value].forEach((letter, i) => {
             setTimeout(() => {
-                td[index].textContent += letter;
+                td[index].textContent += letter
             }, i * 100)
         })
     })
@@ -92,9 +93,11 @@ const importExcelFile = new Content("Import excel file by Web App", "Import")
 importExcelFile.body = (
     <div className="center-child">
         <img src={documentIcon} alt="Document" />
-        <span className="animated-arrow first">›</span>
-        <span className="animated-arrow second">›</span>
-        <span className="animated-arrow third">›</span>
+        <div>
+            <span className="animated-arrow first">›</span>
+            <span className="animated-arrow second">›</span>
+            <span className="animated-arrow third">›</span>
+        </div>
         <img src={desktopIcon} alt="Desktop" />
     </div>
 )
@@ -130,9 +133,102 @@ addAssetManually.animate = () => {
     assetsValuesArray.forEach((value, index) => {
         [...value].forEach((letter, i) => {
             setTimeout(() => {
-                inputs[index].value += letter;
+                inputs[index].value += letter
             }, i * 100)
         })
+    })
+}
+
+const printLabels = new Content("Print labels for assets", "Print")
+printLabels.body = (
+    <div className="center-child">
+        <img src={printerIcon} alt="printer" />
+        <div>
+            <span className="animated-arrow first">›</span>
+            <span className="animated-arrow second">›</span>
+            <span className="animated-arrow third">›</span>
+        </div>
+        <div className="label">
+            <span></span>
+            <div className="barcode">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <span></span>
+        </div>
+    </div>   
+)
+printLabels.animate = () => {
+    const arrows = document.querySelectorAll('body .animated-arrow')
+    arrows.forEach(arrow => arrow.style.display = "inline")
+
+    const someAssets = assets.slice(0, 4);
+    
+    const labelFirstLineDOM = document.querySelector(".label > span:first-child")
+    const labelLastLineDOM = document.querySelector(".label > span:last-child")
+    const barcodeDOM = document.querySelector(".barcode")
+
+    someAssets.forEach((asset, index) => {
+        setTimeout(() => {
+            labelFirstLineDOM.textContent = asset.name
+            barcodeDOM.style.display = "flex"
+            labelLastLineDOM.textContent = asset.id
+        }, 800 * index)
+    })
+}
+
+const labelAssets = new Content("Label assets", "Label");
+labelAssets.body = (
+    <div className="center-child">
+        <div className="labels">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div>
+            <span className="animated-arrow first" style={{display: "none"}}>›</span>
+            <span className="animated-arrow second" style={{display: "none"}}>›</span>
+            <span className="animated-arrow third" style={{display: "none"}}>›</span>
+        </div>
+        <div className="asset center-child">
+            <div className="label-on-asset"></div>
+            <span>Asset</span>
+        </div>
+    </div>
+)
+labelAssets.animate = () => {
+    const arrows = document.querySelectorAll('body .animated-arrow')
+    arrows.forEach(arrow => arrow.style.display = "inline")
+
+    const labelsDOM = document.querySelectorAll(".labels > div")
+    const labelOnAssetDOM = document.querySelector(".label-on-asset")
+
+    const timeout = 800;
+    labelsDOM.forEach((label, index) => {
+        setTimeout(() => {
+            label.remove();
+            labelOnAssetDOM.style.display = "block";
+            setTimeout(() => {
+                if (index !== labelsDOM.length - 1) {
+                    labelOnAssetDOM.style.display = "none"
+                }
+            }, timeout / 2)
+        }, timeout * index)
     })
 }
 
@@ -140,7 +236,8 @@ export const contents = [
     createExcelFile,
     importExcelFile,
     addAssetManually,
-    new Content("Label assets", "Label"),
+    printLabels,
+    labelAssets,
     new Content("Create inventory", "Create"),
     new Content("Inventory by Android App", "Inventory"),
     new Content("Inventory by Web App", "Inventory"),
