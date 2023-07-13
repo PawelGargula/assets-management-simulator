@@ -13,7 +13,7 @@ class Content {
     animate = () => {};
 }
 
-const createExcelFile = new Content("Create excel file with assets' data", "Create")
+const createExcelFile = new Content("Create Excel file with assets' data", "Create")
 createExcelFile.body = <table>
     <thead>
         <tr>
@@ -89,7 +89,7 @@ createExcelFile.animate = () => {
     })
 }
 
-const importExcelFile = new Content("Import excel file by Web App", "Import")
+const importExcelFile = new Content("Import Excel file by Web App", "Import")
 importExcelFile.body = (
     <div className="center-child">
         <img src={documentIcon} alt="Document" />
@@ -106,7 +106,7 @@ importExcelFile.animate = () => {
     arrows.forEach(arrow => arrow.style.display = "inline")
 }
 
-const addAssetManually = new Content("Add asset manually by Web App", "Add");
+const addAssetManually = new Content("Add asset manually", "Add");
 addAssetManually.body = (
     <>
         <div className="web-app">
@@ -274,10 +274,52 @@ createInventory.animate = () => {
     const inventoryValues = [
         "Inventory 2023 - Nowy Sącz, Kraków",
         "Nowy Sącz, Kraków",
-        "Jan Kowalski, Paweł Kowalski"
+        "Team NS: Jan Kowalski, Paweł Kowalski"
     ]
 
     inventoryValues.forEach((value, index) => {
+        [...value].forEach((letter, i) => {
+            setTimeout(() => {
+                inputs[index].value += letter
+            }, i * 60)
+        })
+    })
+}
+const inventoryByAndroidApp = new Content("Inventory by Android App", "Login")
+inventoryByAndroidApp.body = (
+    <>
+        <div className="android-app">
+            <h3>Android App</h3>
+            <label htmlFor="login">Login</label>
+            <input id="login" type="text" disabled value=""/>
+            <label htmlFor="password">Password</label>
+            <input id="password" type="password" disabled value=""/>
+            <label htmlFor="inventory">Inventory name</label>
+            <input id="inventory-name" type="text" disabled value=""/>
+            <label htmlFor="team">Team</label>
+            <input id="team" type="text" disabled value=""/>
+            <label htmlFor="area">Area</label>
+            <input id="area" type="text" disabled value=""/>
+        </div>
+        <div>
+            <div>◁</div>
+            <div>◯</div>
+            <div>◻</div>
+        </div>
+    </>
+)
+inventoryByAndroidApp.animate = () => {
+    const inputs = document.querySelectorAll("input")
+
+    const androidValues = [
+        "jkowalski",
+        "12345678",
+        "Inventory 2023 - Nowy Sącz, Kraków",
+        "Team NS",
+        "Nowy Sącz"
+    ]
+
+    androidValues.forEach((value, index) => {
         [...value].forEach((letter, i) => {
             setTimeout(() => {
                 inputs[index].value += letter
@@ -293,8 +335,11 @@ export const contents = [
     printLabels,
     labelAssets,
     createInventory,
-    new Content("Inventory by Android App", "Inventory"),
-    new Content("Inventory by Web App", "Inventory"),
+    inventoryByAndroidApp,
+    new Content("Scan by camera", "Scan"),
+    new Content("Scan by 1D/2D scanner", "Scan"),
+    new Content("Read by RFID reader", "Read"),
+    new Content("Inventory by Web App", "Generate"),
     new Content("Generate inventory reports", "Generate"),
     new Content("Simulation completed", "Finish")
 ]
