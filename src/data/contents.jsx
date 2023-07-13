@@ -328,6 +328,85 @@ inventoryByAndroidApp.animate = () => {
     })
 }
 
+const scanByCamera = new Content("Scan by camera", "Scan")
+scanByCamera.body = (
+    <>
+        <img src={desktopIcon} alt="Desktop" />
+        <div className="android-app">
+            <h3>Android App</h3>
+            <div className="camera">
+                <h4>Camera</h4>
+                <div className="label">
+                    <span></span>
+                    <div className="barcode">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <span></span>
+                </div>
+            </div>
+            <label htmlFor="id">Id</label>
+            <input id="id" type="text" disabled value="" />
+            <label htmlFor="name">Name</label>
+            <input id="name" type="text" disabled value="" />
+        </div>
+        <div>
+            <div>◁</div>
+            <div>◯</div>
+            <div>◻</div>
+        </div>
+    </>
+)
+scanByCamera.animate = () => {
+    const labelFirstLineDOM = document.querySelector(".label > span:first-child")
+    const labelLastLineDOM = document.querySelector(".label > span:last-child")
+    const barcodeDOM = document.querySelector(".barcode")
+    const firstAsset = assets[0]
+
+    labelFirstLineDOM.textContent = firstAsset.name
+    barcodeDOM.style.display = "flex"
+    labelLastLineDOM.textContent = firstAsset.id
+    
+    const labelDOM = document.querySelector(".camera .label");
+    const duration = 2000
+    labelDOM.animate(
+        [
+            { opacity: 0 },
+            { opacity: 1 },
+            { opacity: 0 }
+        ],
+        {
+            duration: duration
+        }
+    )
+    
+    setTimeout(() => {
+        const inputs = document.querySelectorAll("input")
+        const firstAssetValues = Object.values(firstAsset);
+        inputs.forEach((input, index) => {
+            [...firstAssetValues[index]].forEach((letter, i) => {
+                setTimeout(() => {
+                    input.value += letter
+                }, i * 100)
+            })
+        })
+    }, duration / 2)
+}
+
 export const contents = [
     createExcelFile,
     importExcelFile,
@@ -336,10 +415,10 @@ export const contents = [
     labelAssets,
     createInventory,
     inventoryByAndroidApp,
-    new Content("Scan by camera", "Scan"),
+    scanByCamera,
     new Content("Scan by 1D/2D scanner", "Scan"),
     new Content("Read by RFID reader", "Read"),
-    new Content("Inventory by Web App", "Generate"),
+    new Content("Inventory by Web App", "Inventory"),
     new Content("Generate inventory reports", "Generate"),
     new Content("Simulation completed", "Finish")
 ]

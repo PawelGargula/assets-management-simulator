@@ -8,9 +8,9 @@ class Asset {
 }
 
 export const assets = [
-    new Asset("0000000001", "Computer", "Nowy Sącz", "Patryk Kowalski"),
-    new Asset("0000000002", "Monitor", "Kraków", "Monika Kowalska"),
-    new Asset("0000000003", "Printer", "Warszawa", "Marek Kowalski"),
+    new Asset("0000000001", "Desktop", "Nowy Sącz", "Patryk Kowalski"),
+    new Asset("0000000002", "Monitor", "Nowy Sącz", "Monika Kowalska"),
+    new Asset("0000000003", "Printer", "Nowy Sącz", "Marek Kowalski"),
     new Asset("0000000004", "Car", "Wrocław", "Bartłomiej Kowalski"),
     new Asset("0000000005", "Desk", "Gdańsk", "Paweł Kowalski"),
     new Asset("0000000006", "Latop", "Lublin", "Jarosław Kowalski"),

@@ -34,3 +34,24 @@
     margin-top: 0;
     border-bottom: 2px solid white;
 }
+
+img+.android-app {
+    margin-top: 1rem;
+}
+
+.camera {
+    background-color: var(--primary-color);
+    border-radius: 4px;
+    height: 6rem;
+    padding: .2rem;
+}
+
+.camera h4 {
+    margin: 0;
+}
+
+.camera .label {
+    opacity: 0;
+    margin-inline: auto;
+    margin-top: .6rem;
+}
