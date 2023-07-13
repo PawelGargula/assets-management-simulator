@@ -139,7 +139,7 @@ addAssetManually.animate = () => {
     })
 }
 
-const printLabels = new Content("Print labels for assets", "Print")
+const printLabels = new Content("Print labels for assets by Web App", "Print")
 printLabels.body = (
     <div className="center-child">
         <img src={printerIcon} alt="printer" />
@@ -195,10 +195,26 @@ const labelAssets = new Content("Label assets", "Label");
 labelAssets.body = (
     <div className="center-child">
         <div className="labels">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
         </div>
         <div>
             <span className="animated-arrow first" style={{display: "none"}}>›</span>
@@ -206,7 +222,11 @@ labelAssets.body = (
             <span className="animated-arrow third" style={{display: "none"}}>›</span>
         </div>
         <div className="asset center-child">
-            <div className="label-on-asset"></div>
+            <div className="label-on-asset">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
             <span>Asset</span>
         </div>
     </div>
@@ -222,7 +242,7 @@ labelAssets.animate = () => {
     labelsDOM.forEach((label, index) => {
         setTimeout(() => {
             label.remove();
-            labelOnAssetDOM.style.display = "block";
+            labelOnAssetDOM.style.display = "flex";
             setTimeout(() => {
                 if (index !== labelsDOM.length - 1) {
                     labelOnAssetDOM.style.display = "none"
@@ -232,13 +252,47 @@ labelAssets.animate = () => {
     })
 }
 
+const createInventory = new Content("Create inventory", "Create")
+createInventory.body = (
+    <>
+        <div className="web-app">
+            <h3>Web App</h3>
+            <label htmlFor="name">Name</label>
+            <input id="name" type="text" disabled />
+            <label htmlFor="area">Area</label>
+            <input id="area" type="text" disabled />
+            <label htmlFor="team">Team</label>
+            <input id="team" type="text" disabled />
+        </div>
+        <div className="stand"></div>
+        <div></div>
+    </>
+)
+createInventory.animate = () => {
+    const inputs = document.querySelectorAll("input")
+
+    const inventoryValues = [
+        "Inventory 2023 - Nowy Sącz, Kraków",
+        "Nowy Sącz, Kraków",
+        "Jan Kowalski, Paweł Kowalski"
+    ]
+
+    inventoryValues.forEach((value, index) => {
+        [...value].forEach((letter, i) => {
+            setTimeout(() => {
+                inputs[index].value += letter
+            }, i * 60)
+        })
+    })
+}
+
 export const contents = [
     createExcelFile,
     importExcelFile,
     addAssetManually,
     printLabels,
     labelAssets,
-    new Content("Create inventory", "Create"),
+    createInventory,
     new Content("Inventory by Android App", "Inventory"),
     new Content("Inventory by Web App", "Inventory"),
     new Content("Generate inventory reports", "Generate"),
