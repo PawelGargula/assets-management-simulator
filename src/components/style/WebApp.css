@@ -43,3 +43,12 @@ input {
     width: 160px;
     margin: 0 auto;
 }
+
+.web-app h4 {
+    margin: 0;
+    margin-bottom: .2rem;
+}
+
+.web-app tr {
+    height: 1.8rem;
+}

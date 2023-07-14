@@ -16,13 +16,19 @@ td {
     white-space: nowrap
 }
 
-thead tr:first-child {
+tr.excel {
     text-align: left;
     background-color: #037543;
+    color: white;
 }
 
-thead tr:nth-child(2),
+thead tr,
 tbody {
     background-color: white;
     color: black;
+}
+
+div.overflow-auto {
+    max-width: 100%;
+    overflow: auto;
 }

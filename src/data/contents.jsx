@@ -17,7 +17,7 @@ class Content {
 const createExcelFile = new Content("Create Excel file with assets' data", "Create")
 createExcelFile.body = <table>
     <thead>
-        <tr>
+        <tr className="excel">
             <th colSpan={4}>Excel</th>
         </tr>
         <tr>
@@ -275,7 +275,7 @@ createInventory.animate = () => {
     const inventoryValues = [
         "Inventory 2023 - Nowy Sącz, Kraków",
         "Nowy Sącz, Kraków",
-        "Team NS: Jan Kowalski, Paweł Kowalski"
+        "Team NS: Jan Kowalski"
     ]
 
     inventoryValues.forEach((value, index) => {
@@ -295,7 +295,7 @@ inventoryByAndroidApp.body = (
             <input id="login" type="text" disabled value=""/>
             <label htmlFor="password">Password</label>
             <input id="password" type="password" disabled value=""/>
-            <label htmlFor="inventory">Inventory name</label>
+            <label htmlFor="inventory-name">Inventory name</label>
             <input id="inventory-name" type="text" disabled value=""/>
             <label htmlFor="team">Team</label>
             <input id="team" type="text" disabled value=""/>
@@ -518,6 +518,56 @@ readByRFID.animate = () => {
     }, duration / 2)
 }
 
+const pawelAssets = assets.filter(a => a.responsiblePerson === "Paweł Kowalski")
+const inventoryByWebApp = new Content("Inventory by Web App", "Check")
+inventoryByWebApp.body = (
+    <>
+    <div className="web-app">
+            <h3>Web App</h3>
+            <h4>Your assets</h4>
+            <div className="overflow-auto">
+                <table>
+                    <thead>
+                        <tr className="dark">
+                            <th scope="col">Status</th>
+                            <th scope="col">Id</th>
+                            <th scope="col">Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>-</td>
+                            <td>{pawelAssets[0].id}</td>
+                            <td>{pawelAssets[0].name}</td>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>{pawelAssets[1].id}</td>
+                            <td>{pawelAssets[1].name}</td>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>{pawelAssets[2].id}</td>
+                            <td>{pawelAssets[2].name}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div className="stand"></div>
+        <div></div>
+    </>
+)
+inventoryByWebApp.animate = () => {
+    const statusesDOM = document.querySelectorAll("tr > td:first-child")
+
+    statusesDOM.forEach((status, index) => {
+        setTimeout(() => {
+            status.textContent = index === 2 ? "❌" : "✅"
+        }, 600 * index)
+    });
+}
+
 export const contents = [
     createExcelFile,
     importExcelFile,
@@ -529,7 +579,7 @@ export const contents = [
     scanByCamera,
     scanByScaner,
     readByRFID,
-    new Content("Inventory by Web App", "Inventory"),
+    inventoryByWebApp,
     new Content("Generate inventory reports", "Generate"),
     new Content("Simulation completed", "Finish")
 ]
