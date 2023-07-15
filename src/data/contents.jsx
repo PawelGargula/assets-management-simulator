@@ -14,6 +14,8 @@ class Content {
     animate = () => {};
 }
 
+let startSimulationDate
+
 const createExcelFile = new Content("Create Excel file with assets' data", "Create")
 createExcelFile.body = <table>
     <thead>
@@ -23,7 +25,7 @@ createExcelFile.body = <table>
         <tr>
             <th scope="col">Id</th>
             <th scope="col">Name</th>
-            <th scope="col">Localization</th>
+            <th scope="col">Location</th>
             <th scope="col">Reposible person</th>
         </tr>
     </thead>
@@ -73,6 +75,8 @@ createExcelFile.body = <table>
     </tbody>
 </table>
 createExcelFile.animate = () => {
+    startSimulationDate = Date.now()
+
     const firstSevenAssets = assets.slice(0, 7);
     const assetsValuesArray = firstSevenAssets.reduce(
         (accumulator, currentAsset) => accumulator.concat(Object.values(currentAsset)), []
@@ -116,8 +120,8 @@ addAssetManually.body = (
             <input id="id" type="text" disabled />
             <label htmlFor="name">Name</label>
             <input id="name" type="text" disabled />
-            <label htmlFor="Localization">Localization</label>
-            <input id="Localization" type="text" disabled />
+            <label htmlFor="Location">Location</label>
+            <input id="Location" type="text" disabled />
             <label htmlFor="responsible-person">Responsible person</label>
             <input id="responsible-person" type="text" disabled />
         </div>
@@ -287,7 +291,7 @@ createInventory.animate = () => {
         })
     })
 }
-const inventoryByAndroidApp = new Content("Inventory by Android App", "Login")
+const inventoryByAndroidApp = new Content("Inventory by Android App", "Log in")
 inventoryByAndroidApp.body = (
     <>
         <div className="android-app">
@@ -533,6 +537,7 @@ inventoryByWebApp.body = (
                             <th scope="col">Status</th>
                             <th scope="col">Id</th>
                             <th scope="col">Name</th>
+                            <th scope="col">Location</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -540,16 +545,19 @@ inventoryByWebApp.body = (
                             <td>-</td>
                             <td>{pawelAssets[0].id}</td>
                             <td>{pawelAssets[0].name}</td>
+                            <td>{pawelAssets[0].location}</td>
                         </tr>
                         <tr>
                             <td>-</td>
                             <td>{pawelAssets[1].id}</td>
                             <td>{pawelAssets[1].name}</td>
+                            <td>{pawelAssets[1].location}</td>
                         </tr>
                         <tr>
                             <td>-</td>
                             <td>{pawelAssets[2].id}</td>
                             <td>{pawelAssets[2].name}</td>
+                            <td>{pawelAssets[2].location}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -581,7 +589,7 @@ generateRaport.body = (
                         <th scope="col">Status</th>
                         <th scope="col">Id</th>
                         <th scope="col">Name</th>
-                        <th scope="col">Localization</th>
+                        <th scope="col">Location</th>
                         <th scope="col">Reposible person</th>
                     </tr>
                 </thead>
@@ -590,56 +598,56 @@ generateRaport.body = (
                         <td>✅</td>
                         <td>{assets[0].id}</td>
                         <td>{assets[0].name}</td>
-                        <td>{assets[0].localization}</td>
+                        <td>{assets[0].location}</td>
                         <td>{assets[0].responsiblePerson}</td>
                     </tr>
                     <tr>
                         <td>✅</td>
                         <td>{assets[1].id}</td>
                         <td>{assets[1].name}</td>
-                        <td>{assets[1].localization}</td>
+                        <td>{assets[1].location}</td>
                         <td>{assets[1].responsiblePerson}</td>
                     </tr>
                     <tr>
                         <td>✅</td>
                         <td>{assets[2].id}</td>
                         <td>{assets[2].name}</td>
-                        <td>{assets[2].localization}</td>
+                        <td>{assets[2].location}</td>
                         <td>{assets[2].responsiblePerson}</td>
                     </tr>
                     <tr>
                         <td>✅</td>
                         <td>{assets[3].id}</td>
                         <td>{assets[3].name}</td>
-                        <td>{assets[3].localization}</td>
+                        <td>{assets[3].location}</td>
                         <td>{assets[3].responsiblePerson}</td>
                     </tr>
                     <tr>
                         <td>✅</td>
                         <td>{assets[4].id}</td>
                         <td>{assets[4].name}</td>
-                        <td>{assets[4].localization}</td>
+                        <td>{assets[4].location}</td>
                         <td>{assets[4].responsiblePerson}</td>
                     </tr>
                     <tr>
                         <td>❌</td>
                         <td>{assets[5].id}</td>
                         <td>{assets[5].name}</td>
-                        <td>{assets[5].localization}</td>
+                        <td>{assets[5].location}</td>
                         <td>{assets[5].responsiblePerson}</td>
                     </tr>
                     <tr>
                         <td>❌</td>
                         <td>{assets[6].id}</td>
                         <td>{assets[6].name}</td>
-                        <td>{assets[6].localization}</td>
+                        <td>{assets[6].location}</td>
                         <td>{assets[6].responsiblePerson}</td>
                     </tr>
                     <tr>
                         <td>❌</td>
                         <td>{assets[7].id}</td>
                         <td>{assets[7].name}</td>
-                        <td>{assets[7].localization}</td>
+                        <td>{assets[7].location}</td>
                         <td>{assets[7].responsiblePerson}</td>
                     </tr>
                 </tbody>
@@ -651,18 +659,27 @@ generateRaport.body = (
 generateRaport.animate = () => {
     const reportDOM = document.querySelector(".report")
     const dateDOM = document.querySelector(".date")
-
     dateDOM.textContent = new Date().toString()
     reportDOM.classList.add("opacity-transition")
+
+    const timeElapsed = Date.now() - startSimulationDate
+    let minutes = Math.floor((timeElapsed % (1000 * 60 * 60)) / (1000 * 60))
+    let seconds = Math.floor((timeElapsed % (1000 * 60)) / 1000)
+
+    seconds = `${seconds} ${seconds === 1 ? "second" : "seconds"}`
+    const timeElapsedString = minutes
+    ? `${minutes} ${minutes === 1 ? "minute" : "minutes"} and ${seconds}`
+    : seconds
+
+    simulationCompleted.body = (
+        <>
+            <h3>Congratulations, You have completed all steps of the simulation in {timeElapsedString}</h3>
+            <div className="firework"></div>
+        </>
+    )
 }
 
 const simulationCompleted = new Content("Simulation completed", "Finish")
-simulationCompleted.body = (
-    <>
-        <h3>Congratulations, you have completed all steps of the simulation.</h3>
-        <div className="firework"></div>
-    </>
-)
 
 export const contents = [
     createExcelFile,

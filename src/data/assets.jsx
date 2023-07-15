@@ -1,8 +1,8 @@
 class Asset {
-    constructor(id, name, localization, responsiblePerson) {
+    constructor(id, name, location, responsiblePerson) {
         this.id = id;
         this.name = name;
-        this.localization = localization;
+        this.location = location;
         this.responsiblePerson = responsiblePerson;
     }
 }

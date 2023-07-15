@@ -3,11 +3,18 @@
     background-color: var(--secondary-color);
     min-height: 100dvh;
     left: 0;
-    padding: 1rem;
-    padding-top: 4rem;
     position: absolute;
     top: 0;
     width: 100dvw;
+}
+
+.popup .max-width {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    min-height: 100dvh;
+    padding: 1rem;
+    padding-top: 4rem;
 }
 
 /* Body */

@@ -1,6 +1,6 @@
 @keyframes firework {
     0% {
-        transform: translate(-50%, 60vh);
+        transform: translate(-50%, 45vh);
         width: 0.5vmin;
         opacity: 1;
     }
@@ -19,7 +19,6 @@
 .firework,
 .firework::before,
 .firework::after {
-    --top: 60vh;
     content: "";
     position: absolute;
     top: 50%;

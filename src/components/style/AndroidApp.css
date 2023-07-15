@@ -18,6 +18,12 @@
     padding: .3rem;
 }
 
+.android-app,
+.android-app+div {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
 .android-app+div>div {
     font-weight: 900;
 }

@@ -23,6 +23,7 @@
   font-family: 'Genos', sans-serif;
   text-wrap: balance;
   letter-spacing: 1px;
+  box-sizing: border-box;
 }
 
 strong {
@@ -62,4 +63,16 @@ ol {
 
 input {
   font-size: 1rem;
+}
+
+@media (min-width: 400px) and (min-height: 700px) {
+  :root {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 700px)and (min-height: 1000px) {
+  :root {
+    font-size: 20px;
+  }
 }
