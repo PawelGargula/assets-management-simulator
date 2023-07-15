@@ -253,6 +253,11 @@ labelAssets.animate = () => {
     })
 }
 
+const inventoryData = {
+    name: "Inventory 2023 - Nowy Sącz, Kraków",
+    areas: "Nowy Sącz, Kraków",
+    teams: "Team NS: Jan Kowalski"
+}
 const createInventory = new Content("Create inventory", "Create")
 createInventory.body = (
     <>
@@ -272,11 +277,7 @@ createInventory.body = (
 createInventory.animate = () => {
     const inputs = document.querySelectorAll("input")
 
-    const inventoryValues = [
-        "Inventory 2023 - Nowy Sącz, Kraków",
-        "Nowy Sącz, Kraków",
-        "Team NS: Jan Kowalski"
-    ]
+    const inventoryValues = Object.values(inventoryData)
 
     inventoryValues.forEach((value, index) => {
         [...value].forEach((letter, i) => {
@@ -315,7 +316,7 @@ inventoryByAndroidApp.animate = () => {
     const androidValues = [
         "jkowalski",
         "12345678",
-        "Inventory 2023 - Nowy Sącz, Kraków",
+        inventoryData.name,
         "Team NS",
         "Nowy Sącz"
     ]
@@ -568,6 +569,101 @@ inventoryByWebApp.animate = () => {
     });
 }
 
+const generateRaport = new Content("Generate inventory report", "Generate")
+generateRaport.body = (
+    <div className="report">
+        <h3>Inventory report</h3>
+        <h4>{inventoryData.name}</h4>
+        <div className="overflow-auto">
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Status</th>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Localization</th>
+                        <th scope="col">Reposible person</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>✅</td>
+                        <td>{assets[0].id}</td>
+                        <td>{assets[0].name}</td>
+                        <td>{assets[0].localization}</td>
+                        <td>{assets[0].responsiblePerson}</td>
+                    </tr>
+                    <tr>
+                        <td>✅</td>
+                        <td>{assets[1].id}</td>
+                        <td>{assets[1].name}</td>
+                        <td>{assets[1].localization}</td>
+                        <td>{assets[1].responsiblePerson}</td>
+                    </tr>
+                    <tr>
+                        <td>✅</td>
+                        <td>{assets[2].id}</td>
+                        <td>{assets[2].name}</td>
+                        <td>{assets[2].localization}</td>
+                        <td>{assets[2].responsiblePerson}</td>
+                    </tr>
+                    <tr>
+                        <td>✅</td>
+                        <td>{assets[3].id}</td>
+                        <td>{assets[3].name}</td>
+                        <td>{assets[3].localization}</td>
+                        <td>{assets[3].responsiblePerson}</td>
+                    </tr>
+                    <tr>
+                        <td>✅</td>
+                        <td>{assets[4].id}</td>
+                        <td>{assets[4].name}</td>
+                        <td>{assets[4].localization}</td>
+                        <td>{assets[4].responsiblePerson}</td>
+                    </tr>
+                    <tr>
+                        <td>❌</td>
+                        <td>{assets[5].id}</td>
+                        <td>{assets[5].name}</td>
+                        <td>{assets[5].localization}</td>
+                        <td>{assets[5].responsiblePerson}</td>
+                    </tr>
+                    <tr>
+                        <td>❌</td>
+                        <td>{assets[6].id}</td>
+                        <td>{assets[6].name}</td>
+                        <td>{assets[6].localization}</td>
+                        <td>{assets[6].responsiblePerson}</td>
+                    </tr>
+                    <tr>
+                        <td>❌</td>
+                        <td>{assets[7].id}</td>
+                        <td>{assets[7].name}</td>
+                        <td>{assets[7].localization}</td>
+                        <td>{assets[7].responsiblePerson}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p className="date"></p>
+    </div>
+)
+generateRaport.animate = () => {
+    const reportDOM = document.querySelector(".report")
+    const dateDOM = document.querySelector(".date")
+
+    dateDOM.textContent = new Date().toString()
+    reportDOM.classList.add("opacity-transition")
+}
+
+const simulationCompleted = new Content("Simulation completed", "Finish")
+simulationCompleted.body = (
+    <>
+        <h3>Congratulations, you have completed all steps of the simulation.</h3>
+        <div className="firework"></div>
+    </>
+)
+
 export const contents = [
     createExcelFile,
     importExcelFile,
@@ -580,6 +676,6 @@ export const contents = [
     scanByScaner,
     readByRFID,
     inventoryByWebApp,
-    new Content("Generate inventory reports", "Generate"),
-    new Content("Simulation completed", "Finish")
+    generateRaport,
+    simulationCompleted
 ]

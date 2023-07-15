@@ -7,6 +7,8 @@ import './style/WebApp.css'
 import './style/Print.css'
 import './style/Labels.css'
 import './style/AndroidApp.css'
+import './style/Report.css'
+import './style/FireWork.css'
 import ExitSimulationButton from './ExitSimulationButton';
 import StepBackButton from './StepBackButton';
 import Button from './Button'

@@ -14,7 +14,7 @@ export default function Steps() {
                 <li>Scan by 1D/2D scanner</li>
                 <li>Read by RFID reader</li>
                 <li>Inventory by Web app</li>
-                <li>Generate Inventory Reports</li>
+                <li>Generate Inventory Report</li>
             </ol>   
         </>
     )
