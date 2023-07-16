@@ -9,11 +9,11 @@ export default function Steps() {
                 <li>Print labels for assets by Web App</li>
                 <li>Label assets</li>
                 <li>Create inventory - Name, Area, Team</li>
-                <li>Inventory by Android app</li>
+                <li>Inventory by Android App</li>
                 <li>Scan by camera</li>
                 <li>Scan by 1D/2D scanner</li>
                 <li>Read by RFID reader</li>
-                <li>Inventory by Web app</li>
+                <li>Inventory by Web App</li>
                 <li>Generate Inventory Report</li>
             </ol>   
         </>
