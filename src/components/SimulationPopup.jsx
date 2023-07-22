@@ -28,7 +28,7 @@ export default function SimulationPopup({ exitSimulation }) {
                 {simulationStep !== 0 && !animating && <StepBackButton onClick={() => setSimulationStep(simulationStep -1)}/>}
                 <progress max={stepsLength - 1} value={simulationStep} aria-label='simulation progress'></progress>
                 <h2>{contents[simulationStep].title}</h2>
-                <div className='body'>{contents[simulationStep].body}</div>
+                <div className='body' key={simulationStep}>{contents[simulationStep].body}</div>
                 {!animating 
                 ? <Button onClick={
                     () => {
