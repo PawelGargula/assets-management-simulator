@@ -1,20 +1,14 @@
-# Interactive asset management simulator
+# Interactive employee management simulator
 
-## Website showing how assets management system works using interactable simulation.
+## Website showing how employee management system can works using interactable simulation.
 
 ## [Demo](https://pawelgargula.github.io/asset-management-simulator/)
 
 ## Simulation steps
 
-1. Create Excel file with assets' data
-2. Import Excel file by Web App
-3. Add asset manually
-4. Print labels for assets by Web App
-5. Label assets
-6. Create inventory - Name, Area, Team
-7. Inventory by Android App
-8. Scan by camera
-9. Scan by 1D/2D scanner
-10. Read by RFID reader
-11. Inventory by Web App
-12. Generate Inventory Report
+1. Create Excel file with Employee data (Admin)
+2. Import Excel file by Web App (Admin)
+3. Add Employee manually (Admin)
+4. Enter email to authenticate (User)
+5. Click authentication link (User)
+6. Display my information (User)

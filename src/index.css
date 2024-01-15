@@ -10,6 +10,10 @@
   margin-inline: auto;
 }
 
+.margin-top-2 {
+  margin-top: 2rem;
+}
+
 /* General Styles */
 :root {
   --primary-color: #222831;
@@ -63,6 +67,11 @@ ol {
 
 input {
   font-size: 1rem;
+}
+
+.link {
+  color: #009ca3;
+  text-decoration: underline;
 }
 
 @media (min-width: 400px) and (min-height: 700px) {

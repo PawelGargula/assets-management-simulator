@@ -3,18 +3,12 @@ export default function Steps() {
         <>
             <h2>Simulation steps</h2>
             <ol>
-                <li>Create Excel file with assets' data</li>
-                <li>Import Excel file by Web App</li>
-                <li>Add asset manually</li>
-                <li>Print labels for assets by Web App</li>
-                <li>Label assets</li>
-                <li>Create inventory - Name, Area, Team</li>
-                <li>Inventory by Android App</li>
-                <li>Scan by camera</li>
-                <li>Scan by 1D/2D scanner</li>
-                <li>Read by RFID reader</li>
-                <li>Inventory by Web App</li>
-                <li>Generate Inventory Report</li>
+                <li>Create Excel file with Employee data (Admin)</li>
+                <li>Import Excel file by Web App (Admin)</li>
+                <li>Add Employee manually (Admin)</li>
+                <li>Enter email to authenticate (User)</li>
+                <li>Click authentication link (User)</li>
+                <li>Display my information (User)</li>
             </ol>   
         </>
     )

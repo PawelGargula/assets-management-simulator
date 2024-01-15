@@ -4,10 +4,7 @@ import './style/Table.css'
 import './style/Spinner.css'
 import './style/AnimatedArrow.css'
 import './style/WebApp.css'
-import './style/Print.css'
-import './style/Labels.css'
 import './style/AndroidApp.css'
-import './style/Report.css'
 import './style/FireWork.css'
 import ExitSimulationButton from './ExitSimulationButton';
 import StepBackButton from './StepBackButton';
@@ -40,7 +37,7 @@ export default function SimulationPopup({ exitSimulation }) {
                             setTimeout(() => {
                                 setSimulationStep(simulationStep + 1)
                                 setAnimating(false)
-                            }, 3000)
+                            }, 4000)
                         }
                     }
                 }>{contents[simulationStep].buttonName}</Button>
