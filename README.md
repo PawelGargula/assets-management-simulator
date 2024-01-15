@@ -2,7 +2,7 @@
 
 ## Website showing how employee management system can works using interactable simulation.
 
-## [Demo](https://pawelgargula.github.io/asset-management-simulator/)
+## [Demo](https://pawelgargula.github.io/employee-management-simulator/)
 
 ## Simulation steps
 
