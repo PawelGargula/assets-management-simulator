@@ -226,7 +226,7 @@ displayMyInformation.body = (
         <div className="android-app">
             <h3>Employee Self-Service</h3>
             <h4>Hi {employee.fullName}</h4>
-            <p>Check you information</p>
+            <p>Check your informations</p>
             <label htmlFor="email">Email</label>
             <input id="email" type="text" disabled value="*********@domain.com"/>
             <label htmlFor="contract-type">Contract type</label>
